@@ -7,19 +7,28 @@
     android:background="@null"
     android:layout_margin="10dp">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVerticalDivider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
+
     <TextView
         android:id="@+id/txtTitleNameRepository"
         style="@style/TextAppearance.AppCompat.Large"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalDivider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Nome Repositorio" />
+        tools:text="Titulo" />
 
     <TextView
         android:id="@+id/txtDescriptionRepository"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalDivider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtTitleNameRepository"
         tools:text="Descrição do repositório lorem psum dolor sit amet lorem ipsum dolor..." />
@@ -29,17 +38,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#101B59"
-        android:layout_marginStart="10dp"
-        app:layout_constraintStart_toEndOf="@+id/imageViewUserRepository"
-        app:layout_constraintTop_toTopOf="@id/imageViewUserRepository"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guidelineVerticalDivider"
+        app:layout_constraintTop_toBottomOf="@id/imageViewUserRepository"
         tools:text="username" />
+
 
     <TextView
         android:id="@+id/txtDescriptionUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="@+id/txtUsername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guidelineVerticalDivider"
         app:layout_constraintTop_toBottomOf="@id/txtUsername"
         tools:text="Nome e Sobrenome" />
 
@@ -47,9 +58,35 @@
         android:id="@+id/imageViewUserRepository"
         android:layout_width="@dimen/size_imageview_user_repository"
         android:layout_height="@dimen/size_imageview_user_repository"
-        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guidelineVerticalDivider"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/baseline_account_circle_24" />
+
+
+    <TextView
+        android:id="@+id/txtCountPullRequests"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF9100"
+        android:drawableTint="#FF9100"
+        android:drawableStart="@drawable/baseline_airline_stops_20"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtDescriptionRepository"
-        tools:src="@drawable/baseline_account_circle_24" />
+        tools:text="640" />
+
+
+    <TextView
+        android:id="@+id/txtCountStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF9100"
+        android:drawableTint="#FF9100"
+        android:drawableStart="@drawable/baseline_assistant_24"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toEndOf="@id/txtCountPullRequests"
+        app:layout_constraintTop_toBottomOf="@id/txtDescriptionRepository"
+        tools:text="98" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
