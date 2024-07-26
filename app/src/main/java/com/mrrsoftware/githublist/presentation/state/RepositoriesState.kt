@@ -9,5 +9,7 @@ import com.mrrsoftware.githublist.domain.entity.Repository
 sealed class RepositoriesState {
     data class ShowRepositories(val list: List<Repository>) : RepositoriesState()
     data object ShowLoading : RepositoriesState()
+
+    data object ShowError : RepositoriesState()
     data object HideLoading : RepositoriesState()
 }
