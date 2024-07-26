@@ -26,14 +26,19 @@ class RepositoriesAdapter : RecyclerView.Adapter<RepositoriesAdapter.Repositorie
 
     override fun onBindViewHolder(holder: RepositoriesViewHolder, position: Int) {
         val repository = repositories[position]
-        holder.titleTextView.text = repository.title
-        holder.descriptionTextView.text = repository.description
-        holder.usernameTextView.text = repository.user.userName
-        Glide.with(holder.userImageView.context)
-            .load(repository.user.imageUrl)
-            .placeholder(R.drawable.baseline_account_circle_24)
-            .error(R.drawable.baseline_account_circle_24)
-            .into(holder.userImageView)
+        with(holder){
+            titleTextView.text = repository.title
+            descriptionTextView.text = repository.description
+            usernameTextView.text = repository.user.userName
+            txtCountStart.text = repository.starsCount.toString()
+            txtCountPullRequests.text = repository.pullRequestsCount.toString()
+            Glide.with(this.itemView)
+                .load(repository.user.imageUrl)
+                .placeholder(R.drawable.baseline_account_circle_24)
+                .error(R.drawable.baseline_account_circle_24)
+                .into(userImageView)
+        }
+
     }
 
     override fun getItemCount(): Int = repositories.size
@@ -49,6 +54,8 @@ class RepositoriesAdapter : RecyclerView.Adapter<RepositoriesAdapter.Repositorie
         val descriptionTextView: TextView = itemView.findViewById(R.id.txtDescriptionRepository)
         val usernameTextView: TextView = itemView.findViewById(R.id.txtUsername)
         val userImageView: ShapeableImageView = itemView.findViewById(R.id.imageViewUserRepository)
+        val txtCountPullRequests: TextView = itemView.findViewById(R.id.txtCountPullRequests)
+        val txtCountStart: TextView = itemView.findViewById(R.id.txtCountStart)
     }
 
 }

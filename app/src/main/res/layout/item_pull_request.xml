@@ -7,28 +7,19 @@
     android:background="@null"
     android:layout_margin="10dp">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineVerticalDivider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.7" />
-
     <TextView
         android:id="@+id/txtTitleNameRepository"
         style="@style/TextAppearance.AppCompat.Large"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalDivider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Titulo" />
+        tools:text="Nome Repositorio" />
 
     <TextView
         android:id="@+id/txtDescriptionRepository"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalDivider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtTitleNameRepository"
         tools:text="Descrição do repositório lorem psum dolor sit amet lorem ipsum dolor..." />
@@ -37,57 +28,28 @@
         android:id="@+id/txtUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:textColor="#101B59"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/guidelineVerticalDivider"
-        app:layout_constraintTop_toBottomOf="@id/imageViewUserRepository"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewUserRepository"
+        app:layout_constraintStart_toEndOf="@+id/imageViewUserRepository"
+        app:layout_constraintTop_toTopOf="@id/imageViewUserRepository"
         tools:text="username" />
 
-
-    <TextView
-        android:id="@+id/txtDescriptionUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/guidelineVerticalDivider"
-        app:layout_constraintTop_toBottomOf="@id/txtUsername"
-        tools:text="Nome e Sobrenome" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageViewUserRepository"
         android:layout_width="@dimen/size_imageview_user_repository"
         android:layout_height="@dimen/size_imageview_user_repository"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/guidelineVerticalDivider"
-        app:layout_constraintTop_toTopOf="parent"
-        android:importantForAccessibility="no"
-        tools:src="@drawable/baseline_account_circle_24" />
-
-
-    <TextView
-        android:id="@+id/txtCountPullRequests"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#FF9100"
-        android:drawableTint="#FF9100"
-        android:drawableStart="@drawable/baseline_airline_stops_20"
+        android:layout_marginTop="20dp"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtDescriptionRepository"
-        tools:text="640" />
+        tools:src="@drawable/baseline_account_circle_24" />
 
-
-    <TextView
-        android:id="@+id/txtCountStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#FF9100"
-        android:drawableTint="#FF9100"
-        android:drawableStart="@drawable/baseline_assistant_24"
-        android:layout_marginStart="30dp"
-        app:layout_constraintStart_toEndOf="@id/txtCountPullRequests"
-        app:layout_constraintTop_toBottomOf="@id/txtDescriptionRepository"
-        tools:text="98" />
-
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/imageViewUserRepository"
+        android:background="#F1F1F1"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
