@@ -3,6 +3,7 @@ package com.mrrsoftware.githublist.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mrrsoftware.githublist.domain.usecase.RepositoriesUseCase
+import com.mrrsoftware.githublist.presentation.state.RepositoriesState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -17,14 +18,25 @@ class RepositoriesListViewModel(
     private val _state = MutableStateFlow<RepositoriesState>(RepositoriesState.HideLoading)
     val state = _state.asStateFlow()
 
-    fun fetchRepositories(startIndex: Int = 0) = viewModelScope.launch {
+    private var hasMore = true
+    private var currentPage = 0
+    private var isLoading = false
+    fun fetchRepositories() = viewModelScope.launch {
+        if (!hasMore || isLoading) {
+            return@launch
+        }
+        isLoading = true
         try {
-            val repos = repositoriesUseCase.execute(startIndex)
+            val repos = repositoriesUseCase.execute(currentPage)
+            currentPage += 1
+            hasMore = repos.hasMore
             _state.value = RepositoriesState.HideLoading
-            //    _state.value = RepositoriesState.ShowRepositories()
+            _state.value = RepositoriesState.ShowRepositories(repos.list)
+            isLoading = false
         } catch (ex: Exception) {
             _state.value = RepositoriesState.HideLoading
-            //    _state.value = RepositoriesState.ShowFailed()
+            _state.value = RepositoriesState.ShowError
+            isLoading = false
         }
 
 
