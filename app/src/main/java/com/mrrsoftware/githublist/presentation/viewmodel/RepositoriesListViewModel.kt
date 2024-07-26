@@ -21,6 +21,8 @@ class RepositoriesListViewModel(
     private var hasMore = true
     private var currentPage = 0
     private var isLoading = false
+
+
     fun fetchRepositories() = viewModelScope.launch {
         if (!hasMore || isLoading) {
             return@launch
