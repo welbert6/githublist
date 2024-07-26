@@ -22,6 +22,8 @@ data class RepositoryItemResponse(
     val name : String,
     @SerializedName("description")
     val description : String,
+    @SerializedName("full_name")
+    val fullname : String,
     @SerializedName("owner")
     val owner : OwnerResponse,
     @SerializedName("open_issues_count")

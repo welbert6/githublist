@@ -8,11 +8,15 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.mrrsoftware.githublist.databinding.FragmentPullRequestBinding
 import com.mrrsoftware.githublist.presentation.activity.PullRequestsActivity.Companion.REPOSITORY_ID
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class PullRequestsFragment : Fragment() {
+
+
+    private val pullRequestViewModel by viewModel()
 
     private val binding: FragmentPullRequestBinding by lazy {
         FragmentPullRequestBinding.inflate(layoutInflater)

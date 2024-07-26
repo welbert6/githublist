@@ -82,3 +82,17 @@ P
 Napp/src/androidTest/java/com/mrrsoftware/githublist/ExampleInstrumentedTest.kt,d\7\d7d262ef3d8d0d215023d3a14ea2cf27c4fd00c3
 ~
 Napp/src/main/java/com/mrrsoftware/githublist/data/model/RespositoryResponse.kt,2\4\24bcda57b2f49c943ff2e4f21d224ee671751d93
+Š
+Zapp/src/main/java/com/mrrsoftware/githublist/presentation/activity/PullRequestsFragment.kt,3\8\3847619f16149bafbd3190fc5b365eeafdb6365d
+‹
+[app/src/main/java/com/mrrsoftware/githublist/presentation/viewmodel/pullRequestViewModel.kt,9\0\90a71807a08d2c37d4a7aa2a9a662a8435af55d7
+Œ
+\app/src/main/java/com/mrrsoftware/githublist/presentation/viewmodel/PullRequestsViewModel.kt,2\0\20f65fd48c824b5501879389f7c46155d1af9965
+‚
+Rapp/src/main/java/com/mrrsoftware/githublist/domain/usecase/PullRequestsUseCase.kt,2\d\2d5bfc824b2ab0918d4f99e53e95b08b80253e3e
+}
+Mapp/src/main/java/com/mrrsoftware/githublist/data/model/RepositoryResponse.kt,4\0\4091f8b8e3c27bf11914d11aecaac91e76e55f91
+
+Oapp/src/main/java/com/mrrsoftware/githublist/data/model/PullRequestsResponse.kt,3\b\3bd6330b4ee554d40e7f5d474bfa1945a2ec5bd7
+y
+Iapp/src/main/java/com/mrrsoftware/githublist/domain/entity/PullRequest.kt,6\b\6bb4605ae334278b60265ef209b875eef77021ee

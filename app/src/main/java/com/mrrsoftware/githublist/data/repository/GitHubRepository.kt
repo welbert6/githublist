@@ -1,5 +1,6 @@
 package com.mrrsoftware.githublist.data.repository
 
+import com.mrrsoftware.githublist.domain.entity.PullRequest
 import com.mrrsoftware.githublist.domain.entity.RepositoryReposItems
 
 /**
@@ -7,4 +8,5 @@ import com.mrrsoftware.githublist.domain.entity.RepositoryReposItems
  */
 interface GitHubRepository {
     suspend fun fetchRepositories(page: Int): RepositoryReposItems
+    suspend fun fetchPullRequests(ownerName : String, repositoryName : String) : List<PullRequest>
 }
