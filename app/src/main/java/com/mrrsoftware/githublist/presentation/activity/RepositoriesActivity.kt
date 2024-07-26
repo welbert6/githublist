@@ -1,5 +1,6 @@
 package com.mrrsoftware.githublist.presentation.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mrrsoftware.githublist.R
 import com.mrrsoftware.githublist.databinding.ActivityRepositoriesBinding
 import com.mrrsoftware.githublist.domain.entity.Repository
+import com.mrrsoftware.githublist.presentation.activity.PullRequestsActivity.Companion.REPOSITORY_ID
 import com.mrrsoftware.githublist.presentation.adapter.RepositoryAdapter
 import com.mrrsoftware.githublist.presentation.state.RepositoriesState
 import com.mrrsoftware.githublist.presentation.viewmodel.RepositoriesListViewModel
@@ -46,7 +48,12 @@ class RepositoriesActivity : AppCompatActivity() {
         })
 
 
-        binding.rcRepos.adapter = RepositoryAdapter()
+        binding.rcRepos.adapter = RepositoryAdapter { repository ->
+            startActivity(
+                Intent(this, PullRequestsActivity::class.java)
+                    .putExtra(REPOSITORY_ID, repository.id)
+            )
+        }
 
     }
 
@@ -89,6 +96,6 @@ class RepositoriesActivity : AppCompatActivity() {
     }
 
     companion object {
-        private val LOAD_WHEN_CLOSE_ITEMS_TO_FINISH = 5
+        private const val LOAD_WHEN_CLOSE_ITEMS_TO_FINISH = 5
     }
 }

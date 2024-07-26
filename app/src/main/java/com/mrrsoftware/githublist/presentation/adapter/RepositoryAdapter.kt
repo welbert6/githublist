@@ -4,7 +4,6 @@ package com.mrrsoftware.githublist.presentation.adapter
  * Created by Welbert on 25/07/2024
  */
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -13,9 +12,10 @@ import com.bumptech.glide.Glide
 import com.mrrsoftware.githublist.R
 import com.mrrsoftware.githublist.databinding.ItemRepositoryBinding
 import com.mrrsoftware.githublist.domain.entity.Repository
-import com.mrrsoftware.githublist.presentation.activity.PullRequestsActivity
 
-class RepositoryAdapter : RecyclerView.Adapter<RepositoryAdapter.RepositoriesViewHolder>() {
+class RepositoryAdapter(
+    private val onItemClicked: (Repository) -> Unit
+): RecyclerView.Adapter<RepositoryAdapter.RepositoriesViewHolder>() {
 
     private var repositories: MutableList<Repository> = mutableListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoriesViewHolder {
@@ -55,9 +55,7 @@ class RepositoryAdapter : RecyclerView.Adapter<RepositoryAdapter.RepositoriesVie
                     .into(imageViewUserRepository)
 
                 root.setOnClickListener {
-                    val context = it.context
-                    val intent = Intent(context, PullRequestsActivity::class.java)
-                    context.startActivity(intent)
+                    onItemClicked.invoke(repository)
                 }
             }
         }
