@@ -29,7 +29,8 @@ class RepositoriesAdapter : RecyclerView.Adapter<RepositoriesAdapter.Repositorie
         holder.titleTextView.text = repository.title
         holder.descriptionTextView.text = repository.description
         holder.usernameTextView.text = repository.user.userName
-        Glide.with(holder.userImageView.context).load(repository.user.imageUrl)
+        Glide.with(holder.userImageView.context)
+            .load(repository.user.imageUrl)
             .placeholder(R.drawable.baseline_account_circle_24)
             .error(R.drawable.baseline_account_circle_24)
             .into(holder.userImageView)

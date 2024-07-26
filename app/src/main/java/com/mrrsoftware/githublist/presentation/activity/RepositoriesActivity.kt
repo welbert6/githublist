@@ -1,11 +1,14 @@
 package com.mrrsoftware.githublist.presentation.activity
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mrrsoftware.githublist.R
 import com.mrrsoftware.githublist.databinding.ActivityRepositoriesBinding
 import com.mrrsoftware.githublist.domain.entity.Repository
 import com.mrrsoftware.githublist.presentation.adapter.RepositoriesAdapter
@@ -16,7 +19,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RepositoriesActivity : AppCompatActivity() {
 
-    private val binding : ActivityRepositoriesBinding by lazy {
+    private val binding: ActivityRepositoriesBinding by lazy {
         ActivityRepositoriesBinding.inflate(layoutInflater)
     }
 
@@ -51,18 +54,21 @@ class RepositoriesActivity : AppCompatActivity() {
         lifecycleScope.launch {
             viewModel.state.collect { state ->
                 when (state) {
-                    is   RepositoriesState.ShowLoading -> {
-
+                    is RepositoriesState.ShowLoading -> {
+                        binding.loading.visibility = View.VISIBLE
                     }
+
                     is RepositoriesState.ShowRepositories -> {
                         showRepositories(state.list)
 
                     }
+
                     is RepositoriesState.ShowError -> {
-
+                        showError()
                     }
-                    is RepositoriesState.HideLoading -> {
 
+                    is RepositoriesState.HideLoading -> {
+                        binding.loading.visibility = View.GONE
                     }
 
 
@@ -74,11 +80,15 @@ class RepositoriesActivity : AppCompatActivity() {
 
     }
 
+    private fun showError() {
+        Toast.makeText(this, getString(R.string.error_generico_api), Toast.LENGTH_LONG).show()
+    }
+
     private fun showRepositories(list: List<Repository>) {
         (binding.rcRepos.adapter as RepositoriesAdapter).submitList(list)
     }
 
-    companion object{
+    companion object {
         private val LOAD_WHEN_CLOSE_ITEMS_TO_FINISH = 5
     }
 }

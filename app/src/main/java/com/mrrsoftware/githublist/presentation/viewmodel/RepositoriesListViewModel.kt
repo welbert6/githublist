@@ -15,7 +15,7 @@ class RepositoriesListViewModel(
     private val repositoriesUseCase: RepositoriesUseCase
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow<RepositoriesState>(RepositoriesState.HideLoading)
+    private val _state = MutableStateFlow<RepositoriesState>(RepositoriesState.ShowLoading)
     val state = _state.asStateFlow()
 
     private var hasMore = true
