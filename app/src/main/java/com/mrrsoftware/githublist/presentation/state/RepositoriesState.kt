@@ -1,4 +1,4 @@
-package com.mrrsoftware.githublist.presentation.viewmodel
+package com.mrrsoftware.githublist.presentation.state
 
 import com.mrrsoftware.githublist.domain.entity.Repository
 
