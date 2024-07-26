@@ -13,7 +13,7 @@
         android:theme="@style/Theme.GithubList"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.activity.MainActivity"
+            android:name=".presentation.activity.RepositoriesActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
