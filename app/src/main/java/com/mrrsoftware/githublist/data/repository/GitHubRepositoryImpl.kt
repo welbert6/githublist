@@ -16,7 +16,7 @@ class GitHubRepositoryImpl(private val apiService: GithubService) : GitHubReposi
 
         val listRepo = items.map {
             Repository(
-                it.name, it.description, it.pullRequestsCount, it.starCount,
+                it.id.toString(), it.name, it.description, it.pullRequestsCount, it.starCount,
                 User(it.owner.username, it.owner.avatarUrl)
             )
         }

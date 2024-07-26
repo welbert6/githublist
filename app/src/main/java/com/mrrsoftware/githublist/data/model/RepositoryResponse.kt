@@ -16,6 +16,8 @@ data class RepositoryResponse(
 
 
 data class RepositoryItemResponse(
+    @SerializedName("id")
+    val id : Int,
     @SerializedName("name")
     val name : String,
     @SerializedName("description")

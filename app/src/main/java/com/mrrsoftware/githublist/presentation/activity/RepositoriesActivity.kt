@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mrrsoftware.githublist.R
 import com.mrrsoftware.githublist.databinding.ActivityRepositoriesBinding
 import com.mrrsoftware.githublist.domain.entity.Repository
-import com.mrrsoftware.githublist.presentation.adapter.RepositoriesAdapter
+import com.mrrsoftware.githublist.presentation.adapter.RepositoryAdapter
 import com.mrrsoftware.githublist.presentation.state.RepositoriesState
 import com.mrrsoftware.githublist.presentation.viewmodel.RepositoriesListViewModel
 import kotlinx.coroutines.launch
@@ -46,7 +46,7 @@ class RepositoriesActivity : AppCompatActivity() {
         })
 
 
-        binding.rcRepos.adapter = RepositoriesAdapter()
+        binding.rcRepos.adapter = RepositoryAdapter()
 
     }
 
@@ -85,7 +85,7 @@ class RepositoriesActivity : AppCompatActivity() {
     }
 
     private fun showRepositories(list: List<Repository>) {
-        (binding.rcRepos.adapter as RepositoriesAdapter).submitList(list)
+        (binding.rcRepos.adapter as RepositoryAdapter).submitList(list)
     }
 
     companion object {
