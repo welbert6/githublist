@@ -1,6 +1,6 @@
 package com.mrrsoftware.githublist.data.remote
 
-import com.mrrsoftware.githublist.data.model.RespositoryResponse
+import com.mrrsoftware.githublist.data.model.RepositoryResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -13,5 +13,5 @@ interface GithubService {
     @GET("search/repositories?q=language:Java&sort=stars")
     suspend fun fetchRepositories(
         @Query("page") indexStart: Int,
-    ): Response<RespositoryResponse>
+    ): Response<RepositoryResponse>
 }

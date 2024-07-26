@@ -5,17 +5,17 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by Welbert on 25/07/2024
  */
-data class RespositoryResponse(
+data class RepositoryResponse(
     @SerializedName("total_count")
     val totalCount: Int,
     @SerializedName("incomplete_results")
     val incompleteResults: Boolean,
     @SerializedName("items")
-    val items : List<RepositoryResponse>
+    val items : List<RepositoryItemResponse>
 )
 
 
-data class RepositoryResponse(
+data class RepositoryItemResponse(
     @SerializedName("name")
     val name : String,
     @SerializedName("description")
