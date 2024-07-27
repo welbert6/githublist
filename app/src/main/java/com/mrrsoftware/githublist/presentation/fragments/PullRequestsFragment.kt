@@ -28,15 +28,15 @@ class PullRequestsFragment : Fragment() {
 
     private val viewModel: PullRequestsViewModel by viewModel()
 
-    private val binding: FragmentPullRequestBinding by lazy {
-        FragmentPullRequestBinding.inflate(layoutInflater)
-    }
+    private var _binding: FragmentPullRequestBinding? = null
+    private val binding get() = _binding!!
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        _binding = FragmentPullRequestBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -58,17 +58,22 @@ class PullRequestsFragment : Fragment() {
             }
         }
 
-        try {
-            viewModel.fetchPullRequests(
-                arguments?.getString(OWNER)!!,
-                arguments?.getString(REPOSITORY)!!
-            )
-        } catch (ex: Exception) {
-            showError()
-            ex.printStackTrace()
-        }
+        fetchPullRequest()
+    }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
+    private fun fetchPullRequest(){
+        val ownerName = arguments?.getString(OWNER) ?: return showError()
+        val repoName = arguments?.getString(REPOSITORY) ?: return showError()
+
+        viewModel.fetchPullRequests(
+            ownerName,
+            repoName
+        )
     }
 
     private fun showLoading() {
@@ -95,7 +100,11 @@ class PullRequestsFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(ownerName: String, repoName: String, issuesCount: Int): PullRequestsFragment {
+        fun newInstance(
+            ownerName: String,
+            repoName: String,
+            issuesCount: Int
+        ): PullRequestsFragment {
             return PullRequestsFragment().apply {
                 arguments = bundleOf(
                     REPOSITORY to repoName,
