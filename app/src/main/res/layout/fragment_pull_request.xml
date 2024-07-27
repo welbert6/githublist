@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingStart="16dp"
-    android:paddingEnd="16dp"
-    tools:context=".FirstFragment">
+    android:paddingEnd="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/loading"

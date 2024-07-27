@@ -90,7 +90,11 @@ class PullRequestsFragment : Fragment() {
             list.size,
             arguments?.getInt(ISSUES, 0)
         )
-        binding.rcPulls.adapter = PullRequestAdapter(list)
+        if (list.isEmpty()){
+            Toast.makeText(requireContext(),"Nenhuma pull request aberta", Toast.LENGTH_LONG).show()
+        }else{
+            binding.rcPulls.adapter = PullRequestAdapter(list)
+        }
     }
 
     private fun showError() {

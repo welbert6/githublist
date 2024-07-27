@@ -25,7 +25,11 @@
         </activity>
 
         <activity android:name=".presentation.activity.PullRequestsActivity"
-            android:exported="false"/>
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".presentation.activity.RepositoriesActivity" />
+        </activity>
     </application>
 
 </manifest>
