@@ -56,6 +56,8 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     testImplementation(libs.mockito)
     testImplementation("org.jetbrains.kotlin:kotlin-test:1.5.21")
+    testImplementation("io.insert-koin:koin-test:3.1.2")
+
 
 
     //Retrofit
