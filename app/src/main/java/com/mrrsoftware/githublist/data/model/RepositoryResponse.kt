@@ -6,8 +6,6 @@ import com.google.gson.annotations.SerializedName
  * Created by Welbert on 25/07/2024
  */
 data class RepositoryResponse(
-    @SerializedName("total_count")
-    val totalCount: Int,
     @SerializedName("incomplete_results")
     val incompleteResults: Boolean,
     @SerializedName("items")
@@ -33,8 +31,6 @@ data class RepositoryItemResponse(
 )
 
 data class OwnerResponse(
-    @SerializedName("id")
-    val id : Int,
     @SerializedName("login")
     val username : String,
     @SerializedName("avatar_url")
