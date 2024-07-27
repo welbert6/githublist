@@ -1,4 +1,4 @@
-package com.mrrsoftware.githublist.data.repository
+package com.mrrsoftware.githublist.domain.repository
 
 import com.mrrsoftware.githublist.domain.entity.PullRequest
 import com.mrrsoftware.githublist.domain.entity.RepositoryReposItems

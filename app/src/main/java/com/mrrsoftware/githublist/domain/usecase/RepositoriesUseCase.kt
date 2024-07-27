@@ -1,6 +1,6 @@
 package com.mrrsoftware.githublist.domain.usecase
 
-import com.mrrsoftware.githublist.data.repository.GitHubRepository
+import com.mrrsoftware.githublist.domain.repository.GitHubRepository
 import com.mrrsoftware.githublist.domain.entity.RepositoryReposItems
 
 /**

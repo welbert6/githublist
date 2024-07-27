@@ -7,8 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.mrrsoftware.githublist.presentation.activity.PullRequestsFragment"
-        android:label="@string/first_fragment_label"
+        android:name="com.mrrsoftware.githublist.presentation.fragments.PullRequestsFragment"
         tools:layout="@layout/fragment_pull_request"/>
 
 

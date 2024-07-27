@@ -5,6 +5,7 @@ import com.mrrsoftware.githublist.domain.entity.PullRequest
 import com.mrrsoftware.githublist.domain.entity.Repository
 import com.mrrsoftware.githublist.domain.entity.RepositoryReposItems
 import com.mrrsoftware.githublist.domain.entity.User
+import com.mrrsoftware.githublist.domain.repository.GitHubRepository
 
 /**
  * Created by Welbert on 25/07/2024
