@@ -54,6 +54,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.mockito)
+    //testImplementation(libs.kotlinx-coroutines-test)
 
     //Retrofit
     implementation(libs.retrofit)
