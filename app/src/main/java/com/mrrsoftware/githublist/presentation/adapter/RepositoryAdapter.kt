@@ -46,6 +46,7 @@ class RepositoryAdapter(
                 txtTitleNameRepository.text = repository.title
                 txtDescriptionRepository.text = repository.description
                 txtUsername.text = repository.user.userName
+                txtDescriptionUsername.text = repository.user.fullName
                 txtCountStart.text = repository.starsCount.toString()
                 txtCountPullRequests.text = repository.pullRequestsCount.toString()
                 Glide.with(itemView)
