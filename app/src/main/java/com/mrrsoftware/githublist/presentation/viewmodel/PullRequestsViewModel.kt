@@ -24,7 +24,13 @@ class PullRequestsViewModel(
         try {
             val pullRequests = useCase.execute(ownerName, repositoryName)
             _state.value = PullRequestState.HideLoading
-            _state.value = PullRequestState.ShowPullRequests(pullRequests)
+
+            if (pullRequests.isEmpty()){
+               _state.value = PullRequestState.ShowEmptyPullRequests
+            }else{
+                _state.value = PullRequestState.ShowPullRequests(pullRequests)
+            }
+
         } catch (ex: Exception) {
             ex.printStackTrace()
             _state.value = PullRequestState.HideLoading

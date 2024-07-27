@@ -12,4 +12,5 @@ sealed class PullRequestState {
     data object ShowLoading : PullRequestState()
     data object ShowError : PullRequestState()
     data object HideLoading : PullRequestState()
+    data object ShowEmptyPullRequests : PullRequestState()
 }

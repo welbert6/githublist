@@ -54,11 +54,16 @@ class PullRequestsFragment : Fragment() {
                     PullRequestState.ShowError -> showError()
                     PullRequestState.ShowLoading -> showLoading()
                     is PullRequestState.ShowPullRequests -> showPullRequests(state.list)
+                    PullRequestState.ShowEmptyPullRequests -> showEmptyPullRequests()
                 }
             }
         }
 
         fetchPullRequest()
+    }
+
+    private fun showEmptyPullRequests() {
+        binding.txtTotalCount.text = "Nenhuma pull request aberta"
     }
 
     override fun onDestroyView() {
@@ -90,11 +95,8 @@ class PullRequestsFragment : Fragment() {
             list.size,
             arguments?.getInt(ISSUES, 0)
         )
-        if (list.isEmpty()){
-            Toast.makeText(requireContext(),"Nenhuma pull request aberta", Toast.LENGTH_LONG).show()
-        }else{
-            binding.rcPulls.adapter = PullRequestAdapter(list)
-        }
+        binding.rcPulls.adapter = PullRequestAdapter(list)
+
     }
 
     private fun showError() {
