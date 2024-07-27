@@ -3,4 +3,5 @@
 
 
     <string name="error_generico_api">Falha ao consumir a API do Github</string>
+    <string name="message_total_and_opened_issues">%s opened/%s closed</string>
 </resources>

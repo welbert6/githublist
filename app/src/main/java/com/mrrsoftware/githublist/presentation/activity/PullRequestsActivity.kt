@@ -11,7 +11,6 @@ import com.mrrsoftware.githublist.presentation.fragments.PullRequestsFragment
 
 class PullRequestsActivity : AppCompatActivity() {
 
-    //private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityPullRequestsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +29,8 @@ class PullRequestsActivity : AppCompatActivity() {
     private fun initFragment() {
         val repoName = intent.getStringExtra(REPOSITORY) ?: ""
         val ownerName = intent.getStringExtra(OWNER) ?: ""
-        PullRequestsFragment.newInstance(ownerName,repoName).apply {
+        val issues = intent.getIntExtra(ISSUES,0)
+        PullRequestsFragment.newInstance(ownerName,repoName,issues).apply {
             supportFragmentManager.beginTransaction()
                 .add(R.id.container, this)
                 .commit()
@@ -40,6 +40,9 @@ class PullRequestsActivity : AppCompatActivity() {
     companion object {
         const val REPOSITORY = "repo"
         const val OWNER = "owner"
+        const val ISSUES = "issues"
+
+
     }
 
 }

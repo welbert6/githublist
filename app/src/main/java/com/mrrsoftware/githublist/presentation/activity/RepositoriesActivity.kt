@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mrrsoftware.githublist.R
 import com.mrrsoftware.githublist.databinding.ActivityRepositoriesBinding
 import com.mrrsoftware.githublist.domain.entity.Repository
+import com.mrrsoftware.githublist.presentation.activity.PullRequestsActivity.Companion.ISSUES
 import com.mrrsoftware.githublist.presentation.activity.PullRequestsActivity.Companion.OWNER
 import com.mrrsoftware.githublist.presentation.activity.PullRequestsActivity.Companion.REPOSITORY
 import com.mrrsoftware.githublist.presentation.adapter.RepositoryAdapter
@@ -56,7 +57,8 @@ class RepositoriesActivity : AppCompatActivity() {
                     .putExtras(
                         bundleOf(
                             REPOSITORY to repository.title,
-                            OWNER to repository.user.userName
+                            OWNER to repository.user.userName,
+                            ISSUES to repository.pullRequestsCount
                         )
                     )
 

@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import com.mrrsoftware.githublist.R
 import com.mrrsoftware.githublist.databinding.FragmentPullRequestBinding
 import com.mrrsoftware.githublist.domain.entity.PullRequest
+import com.mrrsoftware.githublist.presentation.activity.PullRequestsActivity.Companion.ISSUES
 import com.mrrsoftware.githublist.presentation.activity.PullRequestsActivity.Companion.OWNER
 import com.mrrsoftware.githublist.presentation.activity.PullRequestsActivity.Companion.REPOSITORY
 import com.mrrsoftware.githublist.presentation.adapter.PullRequestAdapter
@@ -79,6 +80,11 @@ class PullRequestsFragment : Fragment() {
     }
 
     private fun showPullRequests(list: List<PullRequest>) {
+        binding.txtTotalCount.text = getString(
+            R.string.message_total_and_opened_issues,
+            list.size,
+            arguments?.getInt(ISSUES, 0)
+        )
         binding.rcPulls.adapter = PullRequestAdapter(list)
     }
 
@@ -89,11 +95,12 @@ class PullRequestsFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(ownerName: String, repoName: String): PullRequestsFragment {
+        fun newInstance(ownerName: String, repoName: String, issuesCount: Int): PullRequestsFragment {
             return PullRequestsFragment().apply {
                 arguments = bundleOf(
                     REPOSITORY to repoName,
-                    OWNER to ownerName
+                    OWNER to ownerName,
+                    ISSUES to issuesCount
                 )
             }
         }

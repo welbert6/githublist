@@ -35,7 +35,7 @@ class GitHubRepositoryImpl(private val apiService: GithubService) : GitHubReposi
 
         val listPullRequest = items.map {
             PullRequest(
-                it.id, it.title, it.body, User(it.user.username, "", it.user.avatarUrl)
+                it.id, it.title, it.body ?: "", User(it.user.username, "", it.user.avatarUrl)
             )
         }
 
