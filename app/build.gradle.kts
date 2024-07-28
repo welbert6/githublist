@@ -129,6 +129,10 @@ dependencies {
 
     testImplementation("org.robolectric:robolectric:4.7.3")
 
+    testImplementation("androidx.test.ext:truth:1.3.0")
+
+    testImplementation("androidx.test:runner:1.4.0")
+
     //Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)

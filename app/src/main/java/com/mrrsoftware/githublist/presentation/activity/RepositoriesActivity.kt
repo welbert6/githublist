@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
@@ -24,7 +25,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RepositoriesActivity : AppCompatActivity() {
 
-    private val binding: ActivityRepositoriesBinding by lazy {
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val binding: ActivityRepositoriesBinding by lazy {
         ActivityRepositoriesBinding.inflate(layoutInflater)
     }
 
@@ -33,8 +35,8 @@ class RepositoriesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
-        setupViewModel()
         setupRecycleView()
+        setupViewModel()
     }
 
     private fun setupRecycleView() {
@@ -42,9 +44,8 @@ class RepositoriesActivity : AppCompatActivity() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 val layoutManager = recyclerView.layoutManager as LinearLayoutManager
-                val totalItemCount = layoutManager.itemCount
                 val lastVisibleItem = layoutManager.findLastVisibleItemPosition()
-                if (totalItemCount <= (lastVisibleItem + LOAD_WHEN_CLOSE_ITEMS_TO_FINISH)) {
+                if (layoutManager.itemCount <= (lastVisibleItem + LOAD_WHEN_CLOSE_ITEMS_TO_FINISH)) {
                     viewModel.fetchRepositories()
                 }
             }
@@ -96,7 +97,6 @@ class RepositoriesActivity : AppCompatActivity() {
         viewModel.fetchRepositories()
 
     }
-
     private fun showError() {
         Toast.makeText(this, getString(R.string.error_generico_api), Toast.LENGTH_LONG).show()
     }
