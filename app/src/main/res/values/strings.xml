@@ -4,4 +4,6 @@
 
     <string name="error_generico_api">Falha ao consumir a API do Github</string>
     <string name="message_total_and_opened_issues">%s opened/%s closed</string>
+
+    <string name="item_description">Título: %1$s. Descrição: %2$s. Usuário: %3$s.</string>
 </resources>

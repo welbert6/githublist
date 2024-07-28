@@ -1,11 +1,15 @@
 package com.mrrsoftware.githublist.presentation.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.accessibility.AccessibilityEvent
+import android.view.accessibility.AccessibilityManager
 import android.widget.Toast
 import androidx.annotation.VisibleForTesting
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -99,14 +103,24 @@ class PullRequestsFragment : Fragment() {
             arguments?.getInt(ISSUES, 0)
         )
         binding.rcPulls.adapter = PullRequestAdapter(list)
+        announceLoadDoneAccessibility()
 
     }
 
     private fun showError() {
         Toast.makeText(requireActivity(), getString(R.string.error_generico_api), Toast.LENGTH_LONG)
             .show()
-
     }
+
+    private fun announceLoadDoneAccessibility() {
+        val manager = requireActivity().getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
+        if (manager.isEnabled) {
+            val event = AccessibilityEvent.obtain(AccessibilityEvent.TYPE_ANNOUNCEMENT)
+            event.text.add("Carregamento concluído")
+            manager.sendAccessibilityEvent(event)
+        }
+    }
+
 
     companion object {
         fun newInstance(

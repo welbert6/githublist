@@ -20,6 +20,7 @@ mockito = "4.11.0"
 kotlinx-coroutines-test = "1.8.0"
 core = "1.44.0"
 coreKtxVersion = "1.6.1"
+espressoContrib = "3.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -42,6 +43,7 @@ mockito = { module = "org.mockito:mockito-core", version.ref = "mockito" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test" }
 core = { group = "com.google.ar", name = "core", version.ref = "core" }
 core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "coreKtxVersion" }
+androidx-espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "espressoContrib" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -40,6 +40,8 @@
         android:layout_width="@dimen/size_imageview_user_repository"
         android:layout_height="@dimen/size_imageview_user_repository"
         android:layout_marginTop="20dp"
+        android:focusable="false"
+        android:importantForAccessibility="no"
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtDescriptionRepository"

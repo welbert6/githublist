@@ -58,6 +58,13 @@ class RepositoryAdapter(
                 root.setOnClickListener {
                     onItemClicked.invoke(repository)
                 }
+
+                itemView.contentDescription = itemView.context.getString(
+                    R.string.item_description,
+                    repository.title,
+                    repository.description,
+                    repository.user.userName
+                )
             }
         }
     }

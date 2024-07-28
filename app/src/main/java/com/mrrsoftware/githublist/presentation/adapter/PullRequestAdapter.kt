@@ -41,6 +41,13 @@ class PullRequestAdapter(
                     .placeholder(R.drawable.baseline_account_circle_24)
                     .error(R.drawable.baseline_account_circle_24)
                     .into(imageViewUserRepository)
+
+                itemView.contentDescription = itemView.context.getString(
+                    R.string.item_description,
+                    pullRequest.title,
+                    pullRequest.body,
+                    pullRequest.user.userName
+                )
             }
         }
     }

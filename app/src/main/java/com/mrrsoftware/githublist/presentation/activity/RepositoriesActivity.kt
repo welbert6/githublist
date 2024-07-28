@@ -1,8 +1,11 @@
 package com.mrrsoftware.githublist.presentation.activity
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.accessibility.AccessibilityEvent
+import android.view.accessibility.AccessibilityManager
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.VisibleForTesting
@@ -103,6 +106,17 @@ class RepositoriesActivity : AppCompatActivity() {
 
     private fun showRepositories(list: List<Repository>) {
         (binding.rcRepos.adapter as RepositoryAdapter).submitList(list)
+        announceLoadDoneAccessibility()
+
+    }
+
+    private fun announceLoadDoneAccessibility() {
+        val manager = getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
+        if (manager.isEnabled) {
+            val event = AccessibilityEvent.obtain(AccessibilityEvent.TYPE_ANNOUNCEMENT)
+            event.text.add("Carregamento concluído")
+            manager.sendAccessibilityEvent(event)
+        }
     }
 
     companion object {
