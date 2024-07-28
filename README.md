@@ -45,19 +45,3 @@ O GitHub Repositories Explorer é um aplicativo Android desenvolvido em Kotlin q
   
 - **Configurações de Foco**:
   - Garantido que os elementos interativos estejam acessíveis e fáceis de navegar.
-
-## Estrutura do Projeto
-
-- **app/src/main/java**:
-  - **model**: Classes de modelo para os dados do GitHub.
-  - **network**: Configuração de Retrofit e interfaces de API.
-  - **repository**: Repositório para gerenciamento de dados.
-  - **ui**: Atividades, fragmentos e adaptadores.
-  - **viewmodel**: ViewModels para gerenciamento de lógica de UI.
-  - **utils**: Classes utilitárias, como IdlingResource e helpers.
-
-- **app/src/test/java**:
-  - Testes unitários para ViewModels e lógica de negócios.
-
-- **app/src/androidTest/java**:
-  - Testes instrumentados para UI e navegação.
