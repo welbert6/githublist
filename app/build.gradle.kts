@@ -24,7 +24,10 @@ android {
             unitTests {
                 isIncludeAndroidResources = true
             }
+            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         }
+
+
     }
 
     buildTypes {
@@ -92,6 +95,8 @@ tasks.withType(Test::class) {
     }
 }
 
+
+
 dependencies {
     implementation(libs.koin.android)
     implementation(libs.androidx.core.ktx)
@@ -103,6 +108,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.core)
     implementation(libs.core.ktx)
+    implementation(libs.androidx.espresso.contrib)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -141,6 +147,17 @@ dependencies {
     //Glide
     implementation(libs.glide)
     kapt(libs.glideCompiler)
+
+    // Testes instrumentados
+    //androidTestImplementation ("androidx.test.ext:junit:1.1.3")
+    androidTestImplementation ("androidx.test.espresso:espresso-core:3.4.0")
+    androidTestImplementation ("androidx.test.espresso:espresso-intents:3.4.0")
+    //androidTestImplementation ("androidx.fragment:fragment-testing:1.3.6")
+    androidTestImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2")
+    androidTestImplementation ("io.mockk:mockk-android:1.12.0")
+    //androidTestImplementation ("org.koin:koin-test:3.1.2")
+    androidTestImplementation("io.insert-koin:koin-test:3.1.2")
+    //androidTestImplementation ("org.koin:koin-androidx-ext:3.1.2")
 
 
 }
