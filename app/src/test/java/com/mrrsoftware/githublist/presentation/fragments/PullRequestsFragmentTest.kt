@@ -2,13 +2,13 @@ package com.mrrsoftware.githublist.presentation.fragments
 
 import android.os.Build
 import android.view.View
-import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.launchActivity
 import com.mrrsoftware.githublist.R
 import com.mrrsoftware.githublist.presentation.activity.PullRequestsActivity
 import com.mrrsoftware.githublist.presentation.state.PullRequestState
 import com.mrrsoftware.githublist.presentation.viewmodel.PullRequestsViewModel
-import io.mockk.*
+import io.mockk.every
+import io.mockk.mockk
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.test.runTest
 import org.junit.After
