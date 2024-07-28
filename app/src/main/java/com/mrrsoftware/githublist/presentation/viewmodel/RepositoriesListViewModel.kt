@@ -1,5 +1,6 @@
 package com.mrrsoftware.githublist.presentation.viewmodel
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mrrsoftware.githublist.domain.usecase.RepositoriesUseCase
@@ -20,7 +21,9 @@ class RepositoriesListViewModel(
 
     private var hasMore = true
     private var currentPage = 0
-    private var isLoading = false
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    var isLoading = false
 
 
     fun fetchRepositories() = viewModelScope.launch {
